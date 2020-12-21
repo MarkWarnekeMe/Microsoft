@@ -29,3 +29,10 @@ init: ## sets up environment and installs requirements
 init:
 	cd 	./terraform/Microsoft && ./init.sh
 
+fmt:
+fmt:
+	cd 	./terraform/Microsoft && terraform fmt -check
+
+plan:
+plan:
+	cd 	./terraform/Microsoft &&  ./plan.sh
