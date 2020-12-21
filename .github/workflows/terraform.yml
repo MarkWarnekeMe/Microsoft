@@ -32,7 +32,7 @@ jobs:
         run:
           source ./hack/variables.sh
           source ./hack/secrets.sh
-          make init
+          ./terraform/Microsoft/init.sh
 
       # Checks that all Terraform configuration files adhere to a canonical format
       - name: Terraform Format

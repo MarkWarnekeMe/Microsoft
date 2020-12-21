@@ -12,7 +12,8 @@ help:
 	@echo ''
 	$(call find.functions)
 
-.chmod:
+chmod: ## chmdos necessary shell scripts
+chmod:
 	chmod +x ./hack/variables.sh
 	chmod +x ./hack/secrets.sh
 
@@ -21,8 +22,7 @@ help:
 .variables: .chmod
 	source ./hack/variables.sh
 
-secrets: ## fetches secrets from azure key vault
-secrets: .variables
+.secrets: .variables
 	source ./hack/secrets.sh
 
 init: ## sets up environment and installs requirements
