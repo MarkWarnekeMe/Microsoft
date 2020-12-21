@@ -21,7 +21,11 @@ help:
 .variables: .chmod
 	source ./hack/variables.sh
 
+secrets: ## fetches secrets from azure key vault
+secrets: .variables
+	source ./hack/secrets.sh
+
 init: ## sets up environment and installs requirements
-init: .variables
+init: .variables secrets
 	cd 	./terraform/Microsoft && ./init.sh
 
