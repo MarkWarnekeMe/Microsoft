@@ -40,6 +40,7 @@ keyvault=$(az keyvault create --location $resource_location --name $resource_nam
 az keyvault secret set --name $connection_name-clientId --vault-name $resource_name --value $clientId
 if [ $clientSecret ];
 then
+    az keyvault secret set --name $connection_name-azure-credentials --vault-name $resource_name --value $spn
     az keyvault secret set --name $connection_name-clientSecret --vault-name $resource_name --value $clientSecret
 fi
 az keyvault secret set --name $connection_name-subscriptionId --vault-name $resource_name --value $subscriptionId
