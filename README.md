@@ -14,6 +14,8 @@ source ./hack/variables.sh
 ./hack/setup.sh
 source ./hack/secrets.sh
 # printenv | grep ARM_ # ATTENTION: Potentially leaks secrets
+
+make init
 ```
 
 ##
