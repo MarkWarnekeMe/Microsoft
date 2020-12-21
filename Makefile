@@ -26,6 +26,6 @@ secrets: .variables
 	source ./hack/secrets.sh
 
 init: ## sets up environment and installs requirements
-init: .variables secrets
+init:
 	cd 	./terraform/Microsoft && ./init.sh
 
