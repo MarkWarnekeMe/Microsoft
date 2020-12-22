@@ -43,7 +43,7 @@ module "container_registry" {
 
 
 module "key_vault" {
-  source = "./key_vault"
+  source = "../Modules/key_vault"
 
   name                       = var.name
   location                   = var.location
