@@ -49,7 +49,9 @@ Source the variables first `source ./hack/variables.sh`.
 Make sure `jq` is installed (`brew install jq`).
 
 1. Sets current subscription based on `subscription_id`
-2. Create a service principal for executing Github Actions and Terraform [Authenticating using a Service Principal with a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
+2. Create a service principal
+   1. for executing Github Actions and
+   2. Terraform [authenticating using a Service Principal with a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)
 3. Create a initial resource group
 4. Create a initial storage account & container
 5. Create a initial key vault
@@ -80,10 +82,20 @@ clientId=$(echo $spn | jq -r '.clientId') #
 ## secrets.sh
 
 After the setup is done successfully. The stored secrets can be fetched using `secrets.sh`, make sure to be signed in using the SPN.
+This setp is necessary to [authenticating using a Service Principal with a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) for Terraform.
 
 ```bash
 source ./hack/variables.sh
 source ./hack/secrets.sh
+```
+
+The script outputs it like:
+
+```bash
+$ export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
+$ export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
+$ export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
+$ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 ```
 
 ## terraform.yaml

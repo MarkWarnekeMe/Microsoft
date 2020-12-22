@@ -2,6 +2,9 @@ name: 'Terraform'
 
 on:
   push:
+    paths-ignore:
+    - 'docs/**'
+    - '*.md'
     branches:
     - main
   pull_request:
