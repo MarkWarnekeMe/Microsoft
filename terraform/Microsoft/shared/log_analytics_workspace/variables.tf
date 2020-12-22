@@ -29,11 +29,11 @@ variable "sku" {
 variable "retention_in_days" {
   type        = number
   description = "(Optional) The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
-  default = 30
+  default     = 30
 }
 
 variable "daily_quota_gb" {
   type        = number
   description = "(Optional) The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted."
-  default = 1
+  default     = 1
 }
