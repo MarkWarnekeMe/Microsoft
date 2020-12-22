@@ -9,14 +9,14 @@ variable "tenant_id" {
 }
 
 module "markwarnekeme_vnet" {
-  source              = "./markwarnekeme-vnet"
+  source              = "./markwarnekeme_vnet"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
 }
 
 module "markwarnekeme_shared" {
-  source              = "./markwarnekeme-shared"
+  source              = "./markwarnekeme_shared"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-shared")
@@ -27,7 +27,7 @@ module "markwarnekeme_shared" {
 
 
 module "load_more_dev" {
-  source = "./load-more-dev"
+  source = "./load_more_dev"
 
   name                = "load-more"
   resource_group_name = format("%s%s", "load-more", "-dev")
