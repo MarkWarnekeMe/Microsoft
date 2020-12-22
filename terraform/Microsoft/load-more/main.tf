@@ -40,12 +40,12 @@ module "cosmosdb_account" {
 }
 
 module "application_insights" {
-  source                     = "../Modules/application_insights"
-  name                       = var.name
-  location                   = var.location
-  resource_group_name        = azurerm_resource_group.main.name
-  log_analytics_workspace_id = module.log_analytics_workspace.id
-  tags                       = local.tags
+  source              = "../Modules/application_insights"
+  name                = var.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+  application_type    = "web"
+  tags                = local.tags
 }
 
 module "key_vault" {

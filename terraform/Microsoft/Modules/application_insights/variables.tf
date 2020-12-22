@@ -19,6 +19,7 @@ variable "application_type" {
 
 variable "daily_data_cap_in_gb" {
   description = "(Optional) Specifies the Application Insights component daily data volume cap in GB."
+  default     = 1
 }
 
 variable "tags" {
