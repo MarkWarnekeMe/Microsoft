@@ -104,8 +104,25 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-        # On push to main, build or change infrastructure according to Terraform configuration files
-        # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
+  terraform_apply:
+    name: 'terraform apply'
+    runs-on: ubuntu-latest
+
+    environment: Microsoft
+
+    needs: terraform
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: hashicorp/setup-terraform@v1
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
