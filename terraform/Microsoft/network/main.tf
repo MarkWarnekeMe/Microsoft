@@ -23,7 +23,7 @@ locals {
 
 
 resource "azurerm_virtual_network" "main" {
-  name                = format("%s/%s", var.name, "-vnet")
+  name                = format("%s%s", var.name, "-vnet")
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   address_space       = ["192.168.0.0/16"]
@@ -32,14 +32,14 @@ resource "azurerm_virtual_network" "main" {
 }
 
 resource "azurerm_subnet" "backend" {
-  name                 = format("%s/%s", var.name, "-backend")
+  name                 = format("%s%s", var.name, "-backend")
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["192.168.0.0/24"]
 }
 
 resource "azurerm_network_security_group" "deny" {
-  name                = format("%s/%s", var.name, "-deny-nsg")
+  name                = format("%s%s", var.name, "-deny-nsg")
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
 
@@ -62,14 +62,14 @@ resource "azurerm_subnet_network_security_group_association" "backend-deny" {
 }
 
 resource "azurerm_subnet" "frontend" {
-  name                 = format("%s/%s", var.name, "-frontend")
+  name                 = format("%s%s", var.name, "-frontend")
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["192.168.1.0/25"]
 }
 
 resource "azurerm_network_security_group" "allow80" {
-  name                = format("%s/%s", var.name, "-allow-nsg")
+  name                = format("%s%s", var.name, "-allow-nsg")
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
 
