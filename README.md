@@ -16,7 +16,7 @@ chmod +x ./hack/setup.sh
 source ./hack/variables.sh
 
 # Create the initial environment
-./hack/setup.
+./hack/setup.sh
 
 # Get the secrets for the SPN
 source ./hack/secrets.sh
@@ -51,10 +51,6 @@ source ./hack/variables.sh
 | `resource_name`     | Name of the initial resources created by `setup.py`, later also used as a variable for the terraform backend initialization in `init.sh` via `TF_VAR_storage_account_name` |
 | `resource_location` | Same as `resource_name`                                                                                                                                                    |
 | `container_name`    | Same as `resource_name`                                                                                                                                                    |
-
-## login.sh
-
-runs `az login --service-principal` given the variables from `variables.sh`.
 
 ## setup.sh
 
@@ -105,11 +101,15 @@ source ./hack/secrets.sh
 The script outputs it like:
 
 ```bash
-$ export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
-$ export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
-$ export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
-$ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
+export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
+export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
+export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
+export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 ```
+
+## login.sh
+
+runs `az login --service-principal` given the variables from `variables.sh`.
 
 ## terraform.yaml
 
