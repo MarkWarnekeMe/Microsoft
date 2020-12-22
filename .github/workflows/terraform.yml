@@ -29,8 +29,8 @@ jobs:
 
       - name: Fetch variables
         run:
-          source ./hack/variables.sh
-          source ./hack/secrets.sh
+          source ./hack/variables.sh &&
+          source ./hack/secrets.sh &&
           ./terraform/Microsoft/init.sh
 
           # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
