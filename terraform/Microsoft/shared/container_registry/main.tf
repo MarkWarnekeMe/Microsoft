@@ -1,6 +1,6 @@
 resource "azurerm_container_registry" "main" {
   name                     = var.name
-  resource_group_name      = var.resource_group
+  resource_group_name      = var.resource_group_name
   location                 = var.location
   sku                      = var.sku
   georeplication_locations = var.geo_rep_locations
