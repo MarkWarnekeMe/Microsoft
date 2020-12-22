@@ -36,4 +36,6 @@ module "load-more" {
 
   # Used from TF_VAR_tenant_id based on `secrets.sh`
   tenant_id = var.tenant_id
+
+  log_analytics_workspace_id = module.shared.log_analytics_workspace_id
 }

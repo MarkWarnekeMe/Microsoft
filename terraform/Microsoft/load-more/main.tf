@@ -31,16 +31,18 @@ locals {
 # }
 
 module "cosmosdb_account" {
-  source                     = "../Modules/cosmosdb_account"
+  source = "../Modules/cosmosdb_account"
+
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
-  log_analytics_workspace_id = module.log_analytics_workspace.id
+  log_analytics_workspace_id = var.log_analytics_workspace_id
   tags                       = local.tags
 }
 
 module "application_insights" {
-  source              = "../Modules/application_insights"
+  source = "../Modules/application_insights"
+
   name                = var.name
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
@@ -54,7 +56,7 @@ module "key_vault" {
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
-  log_analytics_workspace_id = module.log_analytics_workspace.id
+  log_analytics_workspace_id = var.log_analytics_workspace_id
   tenant_id                  = var.tenant_id
   tags                       = local.tags
 }
