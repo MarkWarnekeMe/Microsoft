@@ -8,14 +8,14 @@ variable "tenant_id" {
   description = "Based on env see `secrets.sh`"
 }
 
-module "markwarnekeme-vnet" {
+module "markwarnekeme_vnet" {
   source              = "./markwarnekeme-vnet"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
 }
 
-module "markwarnekeme-shared" {
+module "markwarnekeme_shared" {
   source              = "./markwarnekeme-shared"
   name                = local.name
   location            = local.location
@@ -26,7 +26,7 @@ module "markwarnekeme-shared" {
 }
 
 
-module "load-more-dev" {
+module "load_more_dev" {
   source = "./load-more-dev"
 
   name                = "load-more"
@@ -37,5 +37,5 @@ module "load-more-dev" {
   # Used from TF_VAR_tenant_id based on `secrets.sh`
   tenant_id = var.tenant_id
 
-  log_analytics_workspace_id = module.shared.log_analytics_workspace_id
+  log_analytics_workspace_id = module.markwarnekeme_shared.log_analytics_workspace_id
 }
