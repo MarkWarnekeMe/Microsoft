@@ -9,8 +9,9 @@ az account set -s $subscription_id
 spn=$(az ad sp create-for-rbac --name $connection_name --role Contributor --scopes /subscriptions/$subscription_id --sdk-auth -o json)
 
 # Save created SPN details
-clientId=$(echo $spn | jq -r '.clientId') # Make sure jq is installed (`brew install jq`), query for property clientId `-r` raw (without quotes)
-clientSecret=$(echo spn | jq -r '.clientSecret')
+# Make sure jq is installed (`brew install jq`), query for property clientId `-r` raw (without quotes)
+clientId=$(echo $spn | jq -r '.clientId')
+clientSecret=$(echo $spn | jq -r '.clientSecret')
 subscriptionId=$(echo $spn | jq -r '.subscriptionId')
 tenantId=$(echo $spn | jq -r '.tenantId')
 
@@ -29,7 +30,7 @@ az keyvault set-policy --name $resource_name --object-id $clientId --secret-perm
 az keyvault secret set --name $connection_name-clientId --vault-name $resource_name --value $clientId
 if [ $clientSecret ];
 then
-    az keyvault secret set --name $connection_name-azure-credentials --vault-name $resource_name --value $spn
+    az keyvault secret set --name $connection_name-azure-credentials --vault-name $resource_name --value "$spn"
     az keyvault secret set --name $connection_name-clientSecret --vault-name $resource_name --value $clientSecret
 fi
 az keyvault secret set --name $connection_name-subscriptionId --vault-name $resource_name --value $subscriptionId
