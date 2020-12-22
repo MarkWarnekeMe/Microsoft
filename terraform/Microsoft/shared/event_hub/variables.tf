@@ -69,6 +69,26 @@ variable "log_categories" {
       name           = "ArchiveLogs"
       enabled        = true
       retention_days = 7
+    },
+    {
+      name           = "CustomerManagedKeyUserLogs"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "EventHubVNetConnectionEvent"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "KafkaCoordinatorLogs"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "KafkaUserErrorLogs"
+      enabled        = true
+      retention_days = 7
   }]
 }
 variable "metric_categories" {
