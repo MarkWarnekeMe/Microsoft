@@ -30,7 +30,7 @@ module "load-more" {
   source = "./load-more"
 
   name                = "load-more"
-  resource_group_name = format("%s%s", "load-more", "-dev")
+  resource_group_name = format("%s%s", "load-more", "")
 
   location = local.location
 
