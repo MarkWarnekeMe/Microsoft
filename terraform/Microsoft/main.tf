@@ -27,12 +27,12 @@ module "shared" {
 
 
 module "load-more" {
-  source              = "./load-more"
+  source = "./load-more"
 
   name                = "load-more"
   resource_group_name = format("%s%s", "load-more", "-dev")
 
-  location            = local.location
+  location = local.location
 
   # Used from TF_VAR_tenant_id based on `secrets.sh`
   tenant_id = var.tenant_id

@@ -1,12 +1,10 @@
 
 variable "name" {
   description = "Name of the resource"
-  value       = "load-more"
 }
 
 variable "resource_group_name" {
   description = "Name of the resource group"
-  value       = "load-more"
 }
 
 variable "location" {
