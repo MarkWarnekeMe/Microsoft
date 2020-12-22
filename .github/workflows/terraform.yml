@@ -22,10 +22,9 @@ jobs:
       run:
         shell: bash
     steps:
+    - uses: actions/checkout@v2
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
-      with:
-        scandir: './hack/*'
 
   terraform:
     name: 'terraform'
