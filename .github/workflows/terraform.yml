@@ -112,5 +112,7 @@ jobs:
         env:
           TF_IN_AUTOMATION: true
         run:
+          source ./hack/variables.sh &&
+          source ./hack/secrets.sh &&
           cd ./terraform/Microsoft &&
           terraform apply -auto-approve -input=false
