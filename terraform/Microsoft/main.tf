@@ -8,15 +8,15 @@ variable "tenant_id" {
   description = "Based on env see `secrets.sh`"
 }
 
-module "network" {
-  source              = "./vnet"
+module "markwarnekeme-vnet" {
+  source              = "./markwarnekeme-vnet"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
 }
 
-module "shared" {
-  source              = "./shared"
+module "markwarnekeme-shared" {
+  source              = "./markwarnekeme-shared"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-shared")
@@ -26,8 +26,8 @@ module "shared" {
 }
 
 
-module "load-more" {
-  source = "./load-more"
+module "load-more-dev" {
+  source = "./load-more-dev"
 
   name                = "load-more"
   resource_group_name = format("%s%s", "load-more", "-dev")
