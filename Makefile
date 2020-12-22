@@ -19,7 +19,7 @@ chmod:
 
 	chmod +x ./terraform/Microsoft/init.sh
 
-.variables: .chmod
+.variables: chmod
 	source ./hack/variables.sh
 
 .secrets: .variables
@@ -27,7 +27,7 @@ chmod:
 
 init: ## sets up environment and installs requirements
 init: .secrets
-	./terraform/Microsoft/init.sh
+	cd ./terraform/Microsoft && ./init.sh
 
 fmt:
 fmt:
