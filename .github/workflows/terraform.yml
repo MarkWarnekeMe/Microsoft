@@ -43,6 +43,8 @@ jobs:
 
       - name: Terraform Init
         id: init
+        env:
+          TF_IN_AUTOMATION: true
         run:
           source ./hack/variables.sh &&
           source ./hack/secrets.sh &&
@@ -54,10 +56,12 @@ jobs:
         id: fmt
         run:
           cd ./terraform/Microsoft &&
-          terraform fmt -check
+          terraform fmt -check -recursive
 
       - name: Terraform Plan
         id: plan
+        env:
+          TF_IN_AUTOMATION: true
         run:
           source ./hack/variables.sh &&
           source ./hack/secrets.sh &&
@@ -69,7 +73,7 @@ jobs:
         uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
         env:
-          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+          PLAN: "terraform\n${{ steps.plan.outputs }}"
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -97,6 +101,8 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env:
+          TF_IN_AUTOMATION: true
         run:
           cd ./terraform/Microsoft &&
           terraform apply -auto-approve
