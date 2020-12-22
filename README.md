@@ -12,16 +12,28 @@ chmod +x ./hack/variables.sh
 chmod +x ./hack/secrets.sh
 chmod +x ./hack/setup.sh
 
+# Source the variables
 source ./hack/variables.sh
-./hack/setup.sh
+
+# Create the initial environment
+./hack/setup.
+
+# Get the secrets for the SPN
 source ./hack/secrets.sh
 # printenv | grep ARM_ # ATTENTION: Potentially leaks secrets
 
+# Login with the SPN
 ./hack/login.sh
 
+# Run Terraform
 cd ./terraform/Microsoft
+
+# Run terraform init with backend-config
 ./init.sh
-./plan.sh
+
+terraform plan
+
+terraform apply
 ```
 
 ## variables.sh
@@ -39,7 +51,6 @@ source ./hack/variables.sh
 | `resource_name`     | Name of the initial resources created by `setup.py`, later also used as a variable for the terraform backend initialization in `init.sh` via `TF_VAR_storage_account_name` |
 | `resource_location` | Same as `resource_name`                                                                                                                                                    |
 | `container_name`    | Same as `resource_name`                                                                                                                                                    |
-
 
 ## login.sh
 
