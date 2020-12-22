@@ -66,7 +66,7 @@ jobs:
           source ./hack/variables.sh &&
           source ./hack/secrets.sh &&
           cd ./terraform/Microsoft &&
-          ./plan.sh
+          terraform plan -no-color
         continue-on-error: true
 
       - name: Update Pull Request
