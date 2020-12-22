@@ -11,3 +11,4 @@ export ARM_CLIENT_ID=$clientId
 export ARM_CLIENT_SECRET=$clientSecret
 export ARM_SUBSCRIPTION_ID=$subscriptionId
 export ARM_TENANT_ID=$tenantId
+export TF_VAR_tenant_id=$tenantId
