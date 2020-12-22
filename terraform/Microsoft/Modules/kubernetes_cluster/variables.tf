@@ -22,24 +22,9 @@ variable "api_server_authorized_ip_ranges" {
   default     = ["0.0.0.0/0"] #everywhere
 }
 
-variable "location" {
-  type        = string
-  description = "The Azure Region in which all resources in this module should be provisioned"
-}
-
 variable "aks_subnet_id" {
   type        = string
   description = "The subnet identifier AKS should join to"
-}
-
-variable "kubernetes_client_id" {
-  type        = string
-  description = "The Client ID for the Service Principal to use for this Managed Kubernetes Cluster"
-}
-
-variable "kubernetes_client_secret" {
-  type        = string
-  description = "The Client Secret for the Service Principal to use for this Managed Kubernetes Cluster"
 }
 
 variable "enable_auto_scaling" {
@@ -110,7 +95,6 @@ variable "aks_admin_username" {
   description = "User profile name to ssh the workers"
 }
 
-
 variable "kubernetes_rbac_enabled" {
   type        = bool
   default     = true
@@ -123,23 +107,7 @@ variable "kubernetes_rbac_aad_enabled" {
   description = "Is AKS Role Based Access Control integration with AAD Enabled?"
 }
 
-
-variable "kubernetes_rbac_cli_app_id" {
-  type        = string
-  description = "The Client ID of an Azure Active Directory Application for AKS RBAC"
-}
-
-variable "kubernetes_rbac_srv_app_id" {
-  type        = string
-  description = "The Server ID of an Azure Active Directory Application for AKS RBAC"
-}
-
-variable "kubernetes_rbac_srv_secret" {
-  type        = string
-  description = "The Server Secret of an Azure Active Directory Application for AKS RBAC"
-}
-
-variable "log_analytics_workspace_resource_id" {
+variable "log_analytics_workspace_id" {
   type        = string
   description = "Resource id of the log analytics workspace"
 }

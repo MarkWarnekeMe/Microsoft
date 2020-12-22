@@ -38,4 +38,10 @@ module "load-more" {
   tenant_id = var.tenant_id
 
   log_analytics_workspace_id = module.shared.log_analytics_workspace_id
+  aks_subnet_id              = module.network.backend_subnet_id
+
+  aks_default_nodepool_node_size  = "Standard_D2s_v3"
+  aks_default_nodepool_node_count = 2
+  kubernetes_version              = "1.18"
+
 }
