@@ -13,7 +13,7 @@ resource "azurerm_eventhub_namespace" "main" {
 
 resource "azurerm_eventhub" "main" {
   name                = var.name
-  namespace_name = azurerm_eventhub_namespace.main.name
+  namespace_name      = azurerm_eventhub_namespace.main.name
   resource_group_name = var.resource_group_name
   partition_count     = var.partition_count
   message_retention   = var.message_retention

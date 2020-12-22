@@ -23,5 +23,5 @@ module "shared" {
   resource_group_name = format("%s%s", local.name, "-shared")
 
   # Used from TF_VAR_tenant_id based on `secrets.sh`
-  tenant_id                  = var.tenant_id
+  tenant_id = var.tenant_id
 }
