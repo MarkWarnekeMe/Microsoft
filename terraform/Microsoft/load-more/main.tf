@@ -1,5 +1,5 @@
 module "kubernetes" {
-  source                     = "./kubernetes"
+  source                     = "../Modules/kubernetes"
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
@@ -8,7 +8,7 @@ module "kubernetes" {
 }
 
 module "cosmosdb_account" {
-  source                     = "./cosmosdb_account"
+  source                     = "../Modules/cosmosdb_account"
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
@@ -17,7 +17,7 @@ module "cosmosdb_account" {
 }
 
 module "application_insights" {
-  source                     = "./application_insights"
+  source                     = "../Modules/application_insights"
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name

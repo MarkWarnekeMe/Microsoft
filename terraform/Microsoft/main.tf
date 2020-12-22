@@ -8,9 +8,8 @@ variable "tenant_id" {
   description = "Based on env see `secrets.sh`"
 }
 
-
 module "network" {
-  source              = "./network"
+  source              = "./vnet"
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
@@ -25,3 +24,4 @@ module "shared" {
   # Used from TF_VAR_tenant_id based on `secrets.sh`
   tenant_id = var.tenant_id
 }
+

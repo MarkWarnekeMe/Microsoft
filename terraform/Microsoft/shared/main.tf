@@ -22,7 +22,7 @@ locals {
 }
 
 module "log_analytics_workspace" {
-  source = "./log_analytics_workspace"
+  source = "../Modules/log_analytics_workspace"
 
   name                = var.name
   location            = var.location
@@ -32,7 +32,7 @@ module "log_analytics_workspace" {
 
 
 module "container_registry" {
-  source = "./container_registry"
+  source = "../Modules/container_registry"
 
   name                       = var.name
   location                   = var.location
@@ -54,7 +54,7 @@ module "key_vault" {
 }
 
 module "event_hub" {
-  source = "./event_hub"
+  source = "../Modules/event_hub"
 
   name                       = var.name
   location                   = var.location
