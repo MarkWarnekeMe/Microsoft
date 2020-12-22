@@ -7,8 +7,7 @@ Microsoft a287d458-0ab8-4a73-9ca6-6f44345f1ada
 ```bash
 az login
 
-chmod +x ./hack/setup.sh
-chmod +x ./hack/secrets.sh
+make chmod
 
 source ./hack/variables.sh
 ./hack/setup.sh

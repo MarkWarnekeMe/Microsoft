@@ -26,8 +26,8 @@ chmod:
 	source ./hack/secrets.sh
 
 init: ## sets up environment and installs requirements
-init:
-	cd 	./terraform/Microsoft && ./init.sh
+init: .secrets
+	./terraform/Microsoft/init.sh
 
 fmt:
 fmt:
