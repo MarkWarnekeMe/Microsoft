@@ -1,0 +1,29 @@
+name: 'kubernetes'
+
+on:
+  push:
+    paths-ignore:
+    - 'docs/**'
+    - '*.md'
+    - 'terraform/**'
+    branches:
+    - main
+  pull_request:
+    paths-ignore:
+    - 'docs/**'
+    - '*.md'
+    - 'terraform/**'
+
+jobs:
+  kubernetes:
+    name: 'kubernetes'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Checkout
+        uses: actions/checkout@v2

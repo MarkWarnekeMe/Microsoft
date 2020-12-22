@@ -5,29 +5,16 @@ on:
     paths-ignore:
     - 'docs/**'
     - '*.md'
+    - 'clusters/**'
     branches:
     - main
   pull_request:
     paths-ignore:
     - 'docs/**'
     - '*.md'
+    - 'clusters/**'
 
 jobs:
-  shellcheck:
-    name: 'shellcheck'
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run ShellCheck
-      uses: ludeeus/action-shellcheck@master
-      env:
-        # https://github.com/koalaman/shellcheck/wiki/SC2154 - var is referenced but not assigned. - `variables.sh`
-        SHELLCHECK_OPTS: -e SC2154
-
   terraform:
     name: 'terraform'
     runs-on: ubuntu-latest
