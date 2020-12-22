@@ -13,5 +13,5 @@ variable "location" {
 
 variable "tags" {
   description = "Additional tags for the resources"
-  default = {}
+  default     = {}
 }
