@@ -11,3 +11,10 @@ module "network" {
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
 }
+
+module "shared" {
+  source              = "./shared"
+  name                = local.name
+  location            = local.location
+  resource_group_name = format("%s%s", local.name, "-shared")
+}
