@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "main" {
 resource "random_id" "randomId" {
   keepers = {
     # Generate a new ID only when a new resource group is defined
-    resource_group = var.resource_group_name
+    resource_group = azurerm_resource_group.main.name
   }
 
   byte_length = 10
@@ -26,7 +26,7 @@ module "log_analytics_workspace" {
 
   name                = var.name
   location            = var.location
-  resource_group_name = var.resource_group_name
+  resource_group_name = azurerm_resource_group.main.name
   tags                = local.tags
 }
 
@@ -36,7 +36,7 @@ module "container_registry" {
 
   name                       = var.name
   location                   = var.location
-  resource_group_name        = var.resource_group_name
+  resource_group_name        = azurerm_resource_group.main.name
   log_analytics_workspace_id = module.log_analytics_workspace.id
   tags                       = local.tags
 }
