@@ -42,6 +42,6 @@ module "load-more" {
 
   aks_default_nodepool_node_size  = "Standard_D2s_v3"
   aks_default_nodepool_node_count = 2
-  kubernetes_version              = "1.18"
+  kubernetes_version              = "1.18.10"
 
 }
