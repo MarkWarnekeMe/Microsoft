@@ -1,7 +1,7 @@
 .EXPORT_ALL_VARIABLES:
 current_dir=$(shell pwd)
 
-SHELL := /bin/bash
+# SHELL := /bin/bash
 
 define find.functions
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
