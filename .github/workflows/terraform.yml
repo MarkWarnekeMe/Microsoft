@@ -85,7 +85,9 @@ jobs:
             #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
             #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
             <details><summary>Show Plan</summary>
+            \`\`\`terraform
             ${process.env.PLAN}
+            \`\`\`
             </details>
             `;
 
