@@ -21,14 +21,24 @@ locals {
   tags = merge(var.tags, local.fixed_tags)
 }
 
-# module "kubernetes" {
-#   source                     = "../Modules/kubernetes"
-#   name                       = var.name
-#   location                   = var.location
-#   resource_group_name        = azurerm_resource_group.main.name
-#   log_analytics_workspace_id = module.log_analytics_workspace.id
-#   tags                       = local.tags
-# }
+module "kubernetes_cluster" {
+  source              = "../Modules/kubernetes_cluster"
+  name                = var.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
+
+  kubernetes_version = var.kubernetes_version
+
+  aks_default_nodepool_node_size  = var.aks_default_nodepool_node_size
+  aks_default_nodepool_node_count = var.aks_default_nodepool_node_count
+
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+
+  aks_subnet_id = var.aks_subnet_id
+
+  tags = local.tags
+}
 
 module "cosmosdb_account" {
   source = "../Modules/cosmosdb_account"

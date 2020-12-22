@@ -23,3 +23,21 @@ variable "tenant_id" {
 variable "log_analytics_workspace_id" {
   description = "Id of the log analytics workspace"
 }
+
+variable "aks_subnet_id" {
+  description = "Id of the subnet"
+}
+
+variable "kubernetes_version" {
+  description = "Version of kubernetes used with aks"
+}
+
+variable "aks_default_nodepool_node_count" {
+  type        = number
+  description = "The number of nodes in default node pool for AKS"
+}
+
+variable "aks_default_nodepool_node_size" {
+  type        = string
+  description = "Node size in default node pool for AKS"
+}

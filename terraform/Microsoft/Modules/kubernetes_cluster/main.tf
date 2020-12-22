@@ -8,14 +8,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
   api_server_authorized_ip_ranges = var.api_server_authorized_ip_ranges
   # enable_pod_security_policy = true
 
-  linux_profile {
-    admin_username = var.aks_admin_username
-
-    ssh_key {
-      key_data = tls_private_key.k8s_key.public_key_openssh
-    }
-  }
-
   default_node_pool {
     name                = var.default_node_pool_name
     enable_auto_scaling = var.enable_auto_scaling
@@ -30,15 +22,16 @@ resource "azurerm_kubernetes_cluster" "aks" {
     max_pods            = var.default_node_pool_nodes_max_pods
   }
 
-  service_principal {
-    client_id     = var.kubernetes_client_id
-    client_secret = var.kubernetes_client_secret
+  identity {
+    type = "SystemAssigned"
   }
+
+
 
   addon_profile {
     oms_agent {
       enabled                    = true
-      log_analytics_workspace_id = var.log_analytics_workspace_resource_id
+      log_analytics_workspace_id = var.log_analytics_workspace_id
     }
 
     kube_dashboard {
@@ -78,13 +71,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   role_based_access_control {
     enabled = var.kubernetes_rbac_enabled
 
-    dynamic "azure_active_directory" {
-      for_each = (var.kubernetes_rbac_aad_enabled) ? [var.kubernetes_rbac_cli_app_id] : []
-      content {
-        client_app_id     = var.kubernetes_rbac_cli_app_id
-        server_app_id     = var.kubernetes_rbac_srv_app_id
-        server_app_secret = var.kubernetes_rbac_srv_secret
-      }
+    azure_active_directory {
+      managed = true
     }
   }
 
@@ -99,9 +87,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
 
-  tags = local.tags
-
-
+  tags = var.tags
 
   lifecycle {
     ignore_changes = [
@@ -121,7 +107,7 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostics" {
   name               = azurerm_kubernetes_cluster.aks.name
   target_resource_id = azurerm_kubernetes_cluster.aks.id
 
-  log_analytics_workspace_id = var.log_analytics_workspace_resource_id
+  log_analytics_workspace_id = var.log_analytics_workspace_id
 
   dynamic "log" {
     for_each = var.logs

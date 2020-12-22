@@ -47,8 +47,3 @@ output "cluster_node_resource_group" {
   value       = azurerm_kubernetes_cluster.aks.node_resource_group
   description = "The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster."
 }
-
-output "key_k8s_nodes" {
-  description = "The key used to ssh the kubernetes nodes"
-  value       = tls_private_key.k8s_key
-}
