@@ -31,6 +31,7 @@ jobs:
         run:
           source ./hack/variables.sh
           source ./hack/secrets.sh
+          cd 	./terraform/Microsoft && ./init.sh
 
           # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
