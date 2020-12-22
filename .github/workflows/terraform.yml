@@ -32,10 +32,6 @@ jobs:
     name: 'terraform'
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        shell: bash
-
     steps:
       - name: Azure Login
         uses: Azure/login@v1.1
