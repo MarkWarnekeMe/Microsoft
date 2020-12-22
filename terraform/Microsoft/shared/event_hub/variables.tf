@@ -43,10 +43,10 @@ variable "capacity" {
 }
 
 
-variable "auto_inflate_enabled" {
-  description = "(Optional) Is Auto Inflate enabled for the EventHub Namespace?"
-  default     = true
-}
+# variable "auto_inflate_enabled" {
+#   description = "(Optional) Is Auto Inflate enabled for the EventHub Namespace?"
+#   default     = true
+# }
 
 variable "log_categories" {
   description = "(Optional) Log Categories to enable"
