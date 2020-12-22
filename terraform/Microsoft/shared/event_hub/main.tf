@@ -6,7 +6,7 @@ resource "azurerm_eventhub_namespace" "main" {
   sku                 = var.sku
   capacity            = var.capacity
 
-  auto_inflate_enabled = var.auto_inflate_enabled
+  # auto_inflate_enabled = var.auto_inflate_enabled
 
   tags = var.tags
 }

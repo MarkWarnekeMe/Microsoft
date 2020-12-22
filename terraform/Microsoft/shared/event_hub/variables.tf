@@ -43,10 +43,10 @@ variable "capacity" {
 }
 
 
-variable "auto_inflate_enabled" {
-  description = "(Optional) Is Auto Inflate enabled for the EventHub Namespace?"
-  default     = true
-}
+# variable "auto_inflate_enabled" {
+#   description = "(Optional) Is Auto Inflate enabled for the EventHub Namespace?"
+#   default     = true
+# }
 
 variable "log_categories" {
   description = "(Optional) Log Categories to enable"
@@ -67,6 +67,26 @@ variable "log_categories" {
     },
     {
       name           = "ArchiveLogs"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "CustomerManagedKeyUserLogs"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "EventHubVNetConnectionEvent"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "KafkaCoordinatorLogs"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "KafkaUserErrorLogs"
       enabled        = true
       retention_days = 7
   }]
