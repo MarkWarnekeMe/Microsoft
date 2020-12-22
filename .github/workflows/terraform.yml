@@ -24,6 +24,8 @@ jobs:
     steps:
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
+      with:
+        scandir: './hack'
 
   terraform:
     name: 'Terraform'
