@@ -75,12 +75,9 @@ variable "tags" {
 
 variable "network_profile" {
   default = {
-    network_plugin     = "kubenet"
-    dns_service_ip     = "192.168.1.10"
-    docker_bridge_cidr = "192.168.32.10/20"
-    service_cidr       = "192.168.0.0/20"
-    pod_cidr           = "192.168.16.0/20"
-    load_balancer_sku  = "standard"
+    network_plugin    = "azure"
+    network_policy    = "azure"
+    load_balancer_sku = "standard"
   }
   description = "Network profile that will be used with AKS"
 }
