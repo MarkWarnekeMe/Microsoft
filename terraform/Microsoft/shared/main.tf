@@ -22,19 +22,19 @@ locals {
 }
 
 module "log_analytics_workspace" {
-    module = "./log_analytics_workspace"
+  source = "./log_analytics_workspace"
 
-    name = var.name
-    location = var.location
-    resource_group_name = var.resource_group_name
+  name                = var.name
+  location            = var.location
+  resource_group_name = var.resource_group_name
 }
 
 
 module "container_registry" {
-    module = "./container_registry"
+  source = "./container_registry"
 
-    name = var.name
-    location = var.location
-    resource_group_name = var.resource_group_name
-    log_analytics_workspace_id = module.log_analytics_workspace.id
+  name                       = var.name
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+  log_analytics_workspace_id = module.log_analytics_workspace.id
 }
