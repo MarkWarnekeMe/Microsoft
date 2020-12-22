@@ -11,5 +11,3 @@ export ARM_CLIENT_ID=$clientId
 export ARM_CLIENT_SECRET=$clientSecret
 export ARM_SUBSCRIPTION_ID=$subscriptionId
 export ARM_TENANT_ID=$tenantId
-
-echo "Secrets fetched..."
