@@ -22,7 +22,7 @@ locals {
 }
 
 module "kubernetes_cluster" {
-  source              = "../Modules/kubernetes_cluster"
+  source              = "../../Modules/kubernetes_cluster"
   name                = var.name
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
@@ -41,7 +41,7 @@ module "kubernetes_cluster" {
 }
 
 module "cosmosdb_account" {
-  source = "../Modules/cosmosdb_account"
+  source = "../../Modules/cosmosdb_account"
 
   name                       = var.name
   location                   = var.location
@@ -51,7 +51,7 @@ module "cosmosdb_account" {
 }
 
 module "application_insights" {
-  source = "../Modules/application_insights"
+  source = "../../Modules/application_insights"
 
   name                = var.name
   location            = var.location
@@ -61,7 +61,7 @@ module "application_insights" {
 }
 
 module "key_vault" {
-  source = "../Modules/key_vault"
+  source = "../../Modules/key_vault"
 
   name                       = var.name
   location                   = var.location
