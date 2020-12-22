@@ -17,6 +17,8 @@ source ./hack/variables.sh
 source ./hack/secrets.sh
 # printenv | grep ARM_ # ATTENTION: Potentially leaks secrets
 
+./hack/login.sh
+
 cd ./terraform/Microsoft
 ./init.sh
 ./plan.sh
