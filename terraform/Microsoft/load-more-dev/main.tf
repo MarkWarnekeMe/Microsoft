@@ -21,8 +21,8 @@ locals {
   tags = merge(var.tags, local.fixed_tags)
 }
 
-# module "kubernetes" {
-#   source                     = "../Modules/kubernetes"
+# module "kubernetes_cluster" {
+#   source                     = "../Modules/kubernetes_cluster"
 #   name                       = var.name
 #   location                   = var.location
 #   resource_group_name        = azurerm_resource_group.main.name
