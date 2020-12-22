@@ -8,6 +8,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   api_server_authorized_ip_ranges = var.api_server_authorized_ip_ranges
   # enable_pod_security_policy = true
 
+  node_resource_group = format("%s%s", var.name, "-kaas")
+
   default_node_pool {
     name                = var.default_node_pool_name
     enable_auto_scaling = var.enable_auto_scaling
