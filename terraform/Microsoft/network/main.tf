@@ -77,7 +77,7 @@ resource "azurerm_network_security_group" "allow80" {
     name                       = "allow"
     priority                   = 100
     direction                  = "Inbound"
-    access                     = "allow"
+    access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "80"
     destination_port_range     = "*"
