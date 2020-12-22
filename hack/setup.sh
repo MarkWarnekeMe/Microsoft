@@ -8,25 +8,11 @@ az account set -s $subscription_id
 # Create SPN
 spn=$(az ad sp create-for-rbac --name $connection_name --role Contributor --scopes /subscriptions/$subscription_id --sdk-auth -o json)
 
-# {
-#   "clientId": "4beb5d7a-e467-4f6e-bb06-086dbe89fb32",
-#   "clientSecret": "<secret>",
-#   "subscriptionId": "a287d458-0ab8-4a73-9ca6-6f44345f1ada",
-#   "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-#   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-#   "resourceManagerEndpointUrl": "https://management.azure.com/",
-#   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-#   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-#   "galleryEndpointUrl": "https://gallery.azure.com/",
-#   "managementEndpointUrl": "https://management.core.windows.net/"
-# }
-
 # Save created SPN details
 clientId=$(echo $spn | jq -r '.clientId') # Make sure jq is installed (`brew install jq`), query for property clientId `-r` raw (without quotes)
 clientSecret=$(echo spn | jq -r '.clientSecret')
 subscriptionId=$(echo $spn | jq -r '.subscriptionId')
 tenantId=$(echo $spn | jq -r '.tenantId')
-
 
 # Create Storage Account
 group=$(az group create -g $resource_group_name -l $resource_location -o json)
@@ -35,6 +21,9 @@ storage_container=$(az storage container create -n $container_name --account-nam
 
 # Create a KeyVault
 keyvault=$(az keyvault create --location $resource_location --name $resource_name -g $resource_group_name -o json)
+
+# Grant access to the automation SPN
+az keyvault set-policy --name $resource_name --object-id $clientId --secret-permissions get list set
 
 # Store created secrets
 az keyvault secret set --name $connection_name-clientId --vault-name $resource_name --value $clientId
