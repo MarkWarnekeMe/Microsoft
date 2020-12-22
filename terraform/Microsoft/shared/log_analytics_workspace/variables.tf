@@ -18,12 +18,6 @@ variable "tags" {
   default     = {}
 }
 
-///////////// LOGS
-variable "solution_plan_map" {
-  description = "Solutions applied to the Workspace analytic environment"
-  type        = map(map(string))
-}
-
 # ================ DEFAULTS ================
 
 variable "sku" {

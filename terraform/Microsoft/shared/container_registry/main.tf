@@ -6,7 +6,7 @@ resource "azurerm_container_registry" "main" {
   georeplication_locations = var.geo_rep_locations
   admin_enabled            = var.admin_enabled
 
-  tags = local.tags
+  tags = var.tags
 }
 
 

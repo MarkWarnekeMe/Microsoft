@@ -27,6 +27,7 @@ module "log_analytics_workspace" {
   name                = var.name
   location            = var.location
   resource_group_name = var.resource_group_name
+  tags                = local.tags
 }
 
 
@@ -37,4 +38,5 @@ module "container_registry" {
   location                   = var.location
   resource_group_name        = var.resource_group_name
   log_analytics_workspace_id = module.log_analytics_workspace.id
+  tags                       = local.tags
 }
