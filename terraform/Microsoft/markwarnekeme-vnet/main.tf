@@ -38,30 +38,6 @@ resource "azurerm_subnet" "backend" {
   address_prefixes     = ["192.168.0.0/24"]
 }
 
-resource "azurerm_network_security_group" "deny" {
-  name                = format("%s%s", var.name, "-deny-nsg")
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-
-  security_rule {
-    name                       = "restrict"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Deny"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-}
-
-resource "azurerm_subnet_network_security_group_association" "backend-deny" {
-  subnet_id                 = azurerm_subnet.backend.id
-  network_security_group_id = azurerm_network_security_group.deny.id
-}
-
-
 resource "azurerm_subnet" "backend_virtual_node" {
   name                 = format("%s%s", var.name, "-backend-aci")
   resource_group_name  = azurerm_resource_group.main.name
@@ -75,11 +51,6 @@ resource "azurerm_subnet" "backend_virtual_node" {
       actions = ["Microsoft.Network/virtualNetworks/subnets/action"]
     }
   }
-}
-
-resource "azurerm_subnet_network_security_group_association" "backend-aci-deny" {
-  subnet_id                 = azurerm_subnet.backend_virtual_node.id
-  network_security_group_id = azurerm_network_security_group.deny.id
 }
 
 resource "azurerm_subnet" "frontend" {
