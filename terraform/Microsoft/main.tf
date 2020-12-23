@@ -39,6 +39,7 @@ module "load-more" {
 
   log_analytics_workspace_id = module.shared.log_analytics_workspace_id
   aks_subnet_id              = module.network.backend_subnet_id
+  aks_aci_subnet_id          = module.network.backend_virtual_node_subnet_id
 
   aks_default_nodepool_node_size  = "Standard_D2s_v3"
   aks_default_nodepool_node_count = 2
