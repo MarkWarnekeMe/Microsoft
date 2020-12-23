@@ -40,8 +40,8 @@ terraform apply
 
 | File | Description |
 | -- | -- |
-| [workflows](./workflows/README.md) | Github automation for CI/CD documentation |
-| [hack](../hack/README.md) | Scripts for automation documentation |
-| [terraform](../terraform/README.md) | Terraform documentation |
-| [terraform/Modules](../terraform/Modules/README.md) | Terraform Module documentation |
-| [clusters](../clusters/README.md) | Kubernetes documentation |
+| [workflows](./workflows/) | Github automation for CI/CD documentation |
+| [hack](../hack/) | Scripts for automation documentation |
+| [terraform](../terraform/) | Terraform documentation |
+| [terraform/Modules](../terraform/Modules/) | Terraform Module documentation |
+| [clusters](../clusters/) | Kubernetes documentation |
