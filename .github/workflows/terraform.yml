@@ -30,6 +30,13 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v1
 
+      # Checks that all Terraform configuration files adhere to a canonical format
+      - name: Terraform Format
+        id: fmt
+        run:
+          cd ./terraform/Microsoft &&
+          terraform fmt -check -recursive
+
       - name: Terraform Init
         id: init
         env:
@@ -39,13 +46,6 @@ jobs:
           source ./hack/secrets.sh &&
           cd ./terraform/Microsoft &&
           ./init.sh
-
-      # Checks that all Terraform configuration files adhere to a canonical format
-      - name: Terraform Format
-        id: fmt
-        run:
-          cd ./terraform/Microsoft &&
-          terraform fmt -check -recursive
 
       - name: Terraform Plan
         id: plan
