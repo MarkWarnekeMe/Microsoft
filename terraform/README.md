@@ -62,4 +62,4 @@ module "log_analytics_workspace" {
 }
 ```
 
-Each module contains a `test` folder. See [Modules](/terraform/Modules).
+Each module contains a `test` folder. See [Modules](Modules).
