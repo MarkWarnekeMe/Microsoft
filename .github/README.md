@@ -1,4 +1,4 @@
-# Microsoft ![Terraform](https://github.com/MarkWarnekeMe/Microsoft/workflows/Terraform/badge.svg?branch=main) ![Kubernetes](https://github.com/MarkWarnekeMe/Microsoft/workflows/Kubernetes/badge.svg?branch=main) ![Hack](https://github.com/MarkWarnekeMe/Microsoft/workflows/Hack/badge.svg?branch=main)
+# Microsoft ![Terraform](https://github.com/MarkWarnekeMe/Microsoft/workflows/Terraform/badge.svg?branch=main) ![Kubernetes](https://github.com/MarkWarnekeMe/Microsoft/workflows/Kubernetes/badge.svg?branch=main) ![Hack](https://github.com/MarkWarnekeMe/Microsoft/workflows/Hack/badge.svg?branch=main) ![Markdown](https://github.com/MarkWarnekeMe/Microsoft/workflows/Markdown/badge.svg?branch=main)
 
 Terraform GitOps demo repository.
 In this repository I am going to demonstrate how to use a GitOps approach to Terraform and Kubernetes.
