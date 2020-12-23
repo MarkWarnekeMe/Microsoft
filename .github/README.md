@@ -35,3 +35,13 @@ terraform plan
 
 terraform apply
 ```
+
+## Documentation
+
+| File | Description |
+| -- | -- |
+| [workflows](.github/workflows/README.md) | Github automation for CI/CD documentation |
+| [hack](hack/README.md) | Scripts for automation documentation |
+| [terraform](terraform/README.md) | Terraform documentation |
+| [terraform/Modules](terraform/Modules/README.md) | Terraform Module documentation |
+| [clusters](clusters/README.md) | Kubernetes documentation |
