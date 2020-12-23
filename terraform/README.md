@@ -61,3 +61,5 @@ module "log_analytics_workspace" {
   tags                = local.tags
 }
 ```
+
+Each module contains a `test` folder. See [Modules](/terraform/Modules).
