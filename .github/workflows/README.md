@@ -16,7 +16,7 @@ Also it creates a sick PR comment with the plan:
 
 ## kubernetes.yaml
 
-Notin yet.
+Noting yet.
 
 Look into:
 
