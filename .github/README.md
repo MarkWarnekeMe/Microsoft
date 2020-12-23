@@ -3,10 +3,10 @@
 Terraform GitOps demo repository.
 In this repository I am going to demonstrate how to use a GitOps approach to Terraform and Kubernetes.
 
-You can review the CI/CD implementation in the [workflows](../workflows/) directory.
+You can review the CI/CD implementation in the [workflows](./workflows/) directory.
 The scripts to setup the Terraform backend are located in [hack](../hack/).
-Terraform templates for Resource Groups and reusable modules are located in [terraform](../terraform).
-Kubernetes GitOps configuration files are located in [clusters](../clusters), Flux is used to provision Kubernetes manifests.
+Terraform templates for Resource Groups and reusable modules are located in [terraform](../terraform/).
+Kubernetes GitOps configuration files are located in [clusters](../clusters/), Flux is used to provision Kubernetes manifests.
 
 ## Documentation
 
