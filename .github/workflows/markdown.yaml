@@ -1,13 +1,13 @@
-name: Check Markdown links
+name: 'Markdown'
 
 on:
   push:
-    branches: [ master ]
     paths:
       - 'docs/**'
       - '**.md'
+    branches:
+    - main
   pull_request:
-    branches: [ master ]
     paths:
     - 'docs/**'
     - '**.md'
