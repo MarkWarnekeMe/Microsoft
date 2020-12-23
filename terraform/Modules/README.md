@@ -4,10 +4,11 @@
 
 Run inside the provided Docker image [azure-terraform-cli](./Dockerfile)
 
-- Change values in [test.vars](test.vars) to match the test environment
-- Probably the values for dependent Resources e.g. KeyVault and Log Analytics keys have changed
+- Create a resource group for tests e.g. `markwarnekeme-tests`
+- Change values in `test.tfvars` to match the test environment
+- Change the test values for the Module resources
   - [ ] (TODO: find way to query this dynamically)
-- Add any environment variables through  a `.env`
+- Add any environment variables through a `.env`
 
 ```shell
 # Build docker image
@@ -36,12 +37,12 @@ go test # -timeout 30m
 
 - All modules are without a provider, so that provider can be configured centrally (parent terraform module)
 - Creates a random name that is used for testing
-- Create terraform options, e.g. references a static [`test.vars`](test.vars)
+- Create terraform options, e.g. references a static `test.tfvars`
   - options are similar to the terraform command line arguments, see:
   - `plan -input=false -lock=false -var name=t7943 -var-file ./test/test.vars -lock=false`
-- Moves `provider.tf` into the module (`../`)
+- Moves `provider.ci.tf` into the module (`../`)
 - Runs `terraform plan` & `terraform apply`
-- Moves `provider.tf` back
+- Moves `provider.ci.tf` back
 
 ### Debugging
 
