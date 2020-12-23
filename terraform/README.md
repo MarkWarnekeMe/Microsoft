@@ -20,7 +20,7 @@ source ./hack/variables.sh
 ./hack/setup.sh
 ```
 
-See [`variables.sh](../hack/variables.sh) and [`setup.sh`](../hack/setup.sh).
+See [`variables.sh`](../hack/variables.sh) and [`setup.sh`](../hack/setup.sh).
 
 ## Microsoft
 
