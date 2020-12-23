@@ -40,8 +40,7 @@ terraform apply
 
 | File | Description |
 | -- | -- |
-| [workflows](./workflows/) | Github automation for CI/CD documentation |
-| [hack](../hack/) | Scripts for automation documentation |
+| [workflows](./workflows/) | CI/CD documentation |
+| [hack](../hack/) | Scripts documentation |
 | [terraform](../terraform/) | Terraform documentation |
-| [terraform/Modules](../terraform/Modules/) | Terraform Module documentation |
 | [clusters](../clusters/) | Kubernetes documentation |
