@@ -36,6 +36,16 @@ resource "azurerm_kubernetes_cluster" "aks" {
       log_analytics_workspace_id = var.log_analytics_workspace_id
     }
 
+    azure_policy {
+      enabled = true
+    }
+
+    aci_connector_linux {
+      enabled     = false
+      subnet_name = var.aks_aci_subnet_id
+
+    }
+
     kube_dashboard {
       enabled = false
     }

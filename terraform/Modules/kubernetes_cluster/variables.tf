@@ -27,6 +27,12 @@ variable "aks_subnet_id" {
   description = "The subnet identifier AKS should join to"
 }
 
+variable "aks_aci_subnet_id" {
+  type        = string
+  default     = ""
+  description = " (Optional) The subnet name for the virtual nodes to run. This is required when aci_connector_linux enabled argument is set to true."
+}
+
 variable "enable_auto_scaling" {
   default     = false
   description = "Enable autoscaling of the default nodepool"
