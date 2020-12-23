@@ -88,16 +88,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
     }
   }
 
-  # // This is needed even though we do not have windows nodes. Else TF will recreate the whole cluster
-  # // if set to kubnet, having a windows profile will make the cluster failing
-  # dynamic "windows_profile" {
-  #   for_each = lookup(var.network_profile, "network_plugin", null) == "azure" ? [1] : []
-  #   content {
-  #     admin_username = "azureuser"
-  #     admin_password = "ThisIs4w3s0m3!" #FIXME: lol...
-  #   }
-  # }
-
 
   tags = var.tags
 

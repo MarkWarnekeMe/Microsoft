@@ -33,7 +33,7 @@ Make sure `jq` is installed (`brew install jq`).
 ```JSON
 {
    "clientId": "<clientId>",
-   "clientSecret": "<clientSecret>",
+   "clientSecret": "<clientSecret>",   # pragma: allowlist secret
    "subscriptionId": "<subscriptionId>",
    "tenantId": "<tenantId>",
    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
@@ -65,7 +65,7 @@ The script outputs it like:
 
 ```bash
 export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
-export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
+export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"   # pragma: allowlist secret
 export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
 export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 ```
