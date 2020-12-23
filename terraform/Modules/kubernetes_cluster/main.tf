@@ -41,7 +41,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     }
 
     aci_connector_linux {
-      enabled     = true
+      # enabled     = true - not available within germanywestcentral
       subnet_name = var.aks_aci_subnet_id
 
     }
