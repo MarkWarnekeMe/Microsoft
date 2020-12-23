@@ -4,13 +4,13 @@ on:
   push:
     paths:
       - 'docs/**'
-      - '**.md'
+      - '**/*.md'
     branches:
     - main
   pull_request:
     paths:
     - 'docs/**'
-    - '**.md'
+    - '**/*.md'
 
 jobs:
   markdown-link-check:
