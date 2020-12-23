@@ -1,4 +1,4 @@
-# Microsoft
+# Microsoft ![Terraform](https://github.com/MarkWarnekeMe/Microsoft/workflows/Terraform/badge.svg?branch=main) ![Hack](https://github.com/MarkWarnekeMe/Microsoft/workflows/Hack/badge.svg?branch=main)
 
 Terraform OPS deployment.
 
