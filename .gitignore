@@ -31,3 +31,6 @@ override.tf.json
 # example: *tfplan*
 
 *.env
+
+go.mod
+go.sum
