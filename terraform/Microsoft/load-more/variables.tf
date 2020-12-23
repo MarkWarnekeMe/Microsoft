@@ -28,6 +28,10 @@ variable "aks_subnet_id" {
   description = "Id of the subnet"
 }
 
+variable "aks_aci_subnet_id" {
+  description = "Id of the subnet for virtual nodes"
+}
+
 variable "kubernetes_version" {
   description = "Version of kubernetes used with aks"
 }

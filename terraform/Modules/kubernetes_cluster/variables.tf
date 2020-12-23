@@ -29,7 +29,6 @@ variable "aks_subnet_id" {
 
 variable "aks_aci_subnet_id" {
   type        = string
-  default     = ""
   description = " (Optional) The subnet name for the virtual nodes to run. This is required when aci_connector_linux enabled argument is set to true."
 }
 

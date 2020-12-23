@@ -35,7 +35,8 @@ module "kubernetes_cluster" {
 
   log_analytics_workspace_id = var.log_analytics_workspace_id
 
-  aks_subnet_id = var.aks_subnet_id
+  aks_subnet_id     = var.aks_subnet_id
+  aks_aci_subnet_id = var.aks_aci_subnet_id
 
   tags = local.tags
 }
