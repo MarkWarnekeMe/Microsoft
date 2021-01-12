@@ -122,7 +122,7 @@ variable "logs" {
 
 variable "metric" {
   default = {
-    category = "AllMetrics"
+    category = "API Server (PREVIEW)"
     enabled  = true
   }
 
