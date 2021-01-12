@@ -62,6 +62,12 @@ variable "aks_default_nodepool_node_count" {
   description = "The number of nodes in default node pool for AKS"
 }
 
+variable "aks_default_nodepool_nodes_min" {
+  type        = number
+  description = "The min number of nodes in default node pool for AKS"
+  default     = 0
+}
+
 variable "aks_default_nodepool_nodes_max" {
   type        = number
   description = "The max number of nodes in default node pool for AKS"
