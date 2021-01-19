@@ -78,7 +78,31 @@ resource "azurerm_network_security_group" "allow80" {
   }
 }
 
+resource "azurerm_network_security_group" "allow81" {
+  name                = format("%s%s", var.name, "-allow-nsg-81")
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  security_rule {
+    name                       = "allow"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "81"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
 resource "azurerm_subnet_network_security_group_association" "frontend-allow80" {
   subnet_id                 = azurerm_subnet.frontend.id
   network_security_group_id = azurerm_network_security_group.allow80.id
+}
+
+
+resource "azurerm_subnet_network_security_group_association" "frontend-allow81" {
+  subnet_id                 = azurerm_subnet.frontend.id
+  network_security_group_id = azurerm_network_security_group.allow81.id
 }
