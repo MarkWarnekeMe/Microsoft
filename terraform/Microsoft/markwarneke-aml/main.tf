@@ -28,8 +28,9 @@ module "machine_learning_workspace" {
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
 
-  randomId              = random_id.randomId.hex
-  container_registry_id = var.container_registry_id
+  randomId                   = random_id.randomId.hex
+  container_registry_id      = var.container_registry_id
+  log_analytics_workspace_id = var.log_analytics_workspace_id
 
   tags = local.tags
 }
