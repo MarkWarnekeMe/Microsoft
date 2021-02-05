@@ -23,6 +23,11 @@ variable "log_analytics_workspace_id" {
   description = "(Required) The id of the log analytics workspace, where the data should get pushed to"
 }
 
+variable "randomId" {
+  type = string
+  description = "A unique id to identify resources together"
+}
+
 variable "tags" {
   description = "A map of tags to set on every taggable resources. Default tag for resource identification are applied by default."
   default     = {}
