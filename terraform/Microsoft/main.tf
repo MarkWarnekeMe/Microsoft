@@ -37,8 +37,8 @@ module "load-more" {
   aks_aci_subnet_id          = module.network.backend_virtual_node_subnet_id
 
   aks_default_nodepool_node_size  = "Standard_D2s_v3"
-  aks_default_nodepool_node_count = 2
-  kubernetes_version              = "1.18.10"
+  aks_default_nodepool_node_count = 3
+  kubernetes_version              = "1.19.6"
 }
 
 module "aml" {
