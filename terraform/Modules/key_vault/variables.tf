@@ -10,10 +10,6 @@ variable "resource_group_name" {
   description = "(Required) The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created"
 }
 
-variable "tenant_id" {
-  description = "(Required) The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault."
-}
-
 variable "sku_name" {
   description = "(Optional) The Name of the SKU used for this Key Vault. Possible values are standard and premium"
   default     = "standard"
