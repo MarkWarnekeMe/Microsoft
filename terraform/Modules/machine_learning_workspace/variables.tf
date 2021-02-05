@@ -56,3 +56,51 @@ variable "account_tier" {
   description = "Storage account account tier"
   default     = "Standard"
 }
+
+
+variable "log_categories" {
+  description = "(Optional) Log Categories to enable"
+  type = list(object({
+    name           = string
+    enabled        = bool
+    retention_days = number
+  }))
+  default = [{
+    name           = "AmlComputeClusterEvent"
+    enabled        = true
+    retention_days = 7
+    },
+    {
+      name           = "AmlComputeClusterNodeEvent"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "AmlComputeJobEvent"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "AmlComputeCpuGpuUtilization"
+      enabled        = true
+      retention_days = 7
+    },
+    {
+      name           = "AmlRunStatusChangedEvent"
+      enabled        = true
+      retention_days = 7
+  }]
+}
+variable "metric_categories" {
+  description = "(Optional) Metric Categories to enable"
+  type = list(object({
+    name           = string
+    enabled        = bool
+    retention_days = number
+  }))
+  default = [{
+    name           = "AllMetrics"
+    enabled        = true
+    retention_days = 7
+  }]
+}
