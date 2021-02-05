@@ -2,6 +2,9 @@ output "application_insights" {
   value = azurerm_application_insights.main
 }
 
+output "id" {
+  value = azurerm_application_insights.id
+}
 
 output "instrumentation_key" {
   value = azurerm_application_insights.main.instrumentation_key

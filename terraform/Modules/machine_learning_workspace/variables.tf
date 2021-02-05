@@ -19,8 +19,8 @@ variable "container_registry_id" {
 }
 
 variable "log_analytics_workspace_id" {
-  type = string
-   description = "(Required) The id of the log analytics workspace, where the data should get pushed to"
+  type        = string
+  description = "(Required) The id of the log analytics workspace, where the data should get pushed to"
 }
 
 variable "tags" {

@@ -8,20 +8,20 @@ module "application_insights" {
   location            = var.location
   resource_group_name = var.resource_group_name
 
-  application_type    = "web"
-  tags = var.tags
+  application_type = "web"
+  tags             = var.tags
 }
 
 module "key_vault" {
   source = "../key_vault"
 
-  name                       = format("%s%s", var.name, var.randomId)
-  location                   = var.location
-  resource_group_name        = var.resource_group_name
+  name                = format("%s%s", var.name, var.randomId)
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
-  sku_name            = var.key_vault_sku_name
+  sku_name                   = var.key_vault_sku_name
   log_analytics_workspace_id = var.log_analytics_workspace_id
-  tags = var.tags
+  tags                       = var.tags
 }
 
 resource "azurerm_storage_account" "main" {
@@ -42,12 +42,10 @@ resource "azurerm_machine_learning_workspace" "main" {
 
   sku_name = var.sku_name
 
-  application_insights_id = azurerm_application_insights.main.id
-
-  key_vault_id       = azurerm_key_vault.main.id
-  storage_account_id = azurerm_storage_account.main.id
-
-  container_registry_id = var.container_registry_id
+  application_insights_id = module.application_insights.id
+  key_vault_id            = module.key_vault.id
+  storage_account_id      = azurerm_storage_account.main.id
+  container_registry_id   = var.container_registry_id
 
   identity {
     type = "SystemAssigned"
