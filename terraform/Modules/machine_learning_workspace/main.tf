@@ -1,23 +1,26 @@
 
 data "azurerm_client_config" "current" {}
 
+module "application_insights" {
+  source = "../application_insights"
 
-resource "azurerm_application_insights" "main" {
   name                = format("%s%s", var.name, var.randomId)
   location            = var.location
   resource_group_name = var.resource_group_name
-  application_type    = "web"
 
+  application_type    = "web"
   tags = var.tags
 }
 
-resource "azurerm_key_vault" "main" {
-  name                = format("%s%s", var.name, var.randomId)
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  tenant_id           = data.azurerm_client_config.current.tenant_id
-  sku_name            = var.key_vault_sku_name
+module "key_vault" {
+  source = "../key_vault"
 
+  name                       = format("%s%s", var.name, var.randomId)
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+
+  sku_name            = var.key_vault_sku_name
+  log_analytics_workspace_id = var.log_analytics_workspace_id
   tags = var.tags
 }
 

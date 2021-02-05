@@ -18,6 +18,11 @@ variable "container_registry_id" {
   description = "The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created."
 }
 
+variable "log_analytics_workspace_id" {
+  type = string
+   description = "(Required) The id of the log analytics workspace, where the data should get pushed to"
+}
+
 variable "tags" {
   description = "A map of tags to set on every taggable resources. Default tag for resource identification are applied by default."
   default     = {}
