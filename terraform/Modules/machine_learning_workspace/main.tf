@@ -1,10 +1,15 @@
 
 data "azurerm_client_config" "current" {}
 
+
+locals {
+  name = substr(format("%s%s", var.name, var.randomId), 0, 23)
+}
+
 module "application_insights" {
   source = "../application_insights"
 
-  name                = format("%s%s", var.name, var.randomId)
+  name                = local.name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -16,7 +21,7 @@ module "application_insights" {
 module "key_vault" {
   source = "../key_vault"
 
-  name                = substr(format("%s%s", var.name, var.randomId), 0, 23)
+  name                = local.name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -28,7 +33,7 @@ module "key_vault" {
 
 resource "azurerm_storage_account" "main" {
 
-  name                = substr(format("%s%s", var.name, var.randomId), 0, 23)
+  name                = local.name
   location            = var.location
   resource_group_name = var.resource_group_name
 
