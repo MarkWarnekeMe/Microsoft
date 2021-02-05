@@ -47,6 +47,7 @@ module "cosmosdb_account" {
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
+
   log_analytics_workspace_id = var.log_analytics_workspace_id
   tags                       = local.tags
 }
@@ -57,6 +58,7 @@ module "application_insights" {
   name                = var.name
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
+
   application_type    = "web"
   tags                = local.tags
 }
@@ -67,7 +69,7 @@ module "key_vault" {
   name                       = var.name
   location                   = var.location
   resource_group_name        = azurerm_resource_group.main.name
+
   log_analytics_workspace_id = var.log_analytics_workspace_id
-  tenant_id                  = var.tenant_id
   tags                       = local.tags
 }

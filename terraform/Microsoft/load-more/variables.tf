@@ -16,10 +16,6 @@ variable "tags" {
   default     = {}
 }
 
-variable "tenant_id" {
-  description = "(Required) The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault."
-}
-
 variable "log_analytics_workspace_id" {
   description = "Id of the log analytics workspace"
 }

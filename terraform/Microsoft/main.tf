@@ -32,9 +32,6 @@ module "load-more" {
   location            = local.location
   resource_group_name = format("%s%s", "load-more", "")
 
-  # Used from TF_VAR_tenant_id based on `secrets.sh`
-  tenant_id = var.tenant_id
-
   log_analytics_workspace_id = module.shared.log_analytics_workspace_id
   aks_subnet_id              = module.network.backend_subnet_id
   aks_aci_subnet_id          = module.network.backend_virtual_node_subnet_id
