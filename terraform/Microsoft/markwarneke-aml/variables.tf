@@ -11,10 +11,6 @@ variable "location" {
   description = "Location of the resources"
 }
 
-variable "randomId" {
-  description = "A random id to identify the resources"
-}
-
 variable "container_registry_id" {
   description = "The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created."
 }
