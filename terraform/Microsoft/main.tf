@@ -46,7 +46,7 @@ module "aml" {
   source = "./markwarneke-aml"
 
   name                = format("%s%s", local.name, "aml")
-  location            = local.location
+  location            = "westeurope" # TODO: 'canadacentral,centralindia,northcentralus,uksouth,westus,centralus,eastasia,japaneast,eastus,northeurope,koreacentral,brazilsouth,francecentral,australiaeast,eastus2,westus2,westcentralus,southeastasia,westeurope,southcentralus
   resource_group_name = format("%s%s", local.name, "-aml")
 
   container_registry_id      = module.shared.container_registry_id
