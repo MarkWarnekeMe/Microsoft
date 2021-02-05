@@ -4,6 +4,23 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "2.41.0"
     }
+    github = {
+      source  = "integrations/github"
+      # 4.3.1 is broken for personal account users
+      version = "4.3.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.0.1"
+    }
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = ">= 1.9.1"
+    }
+    flux = {
+      source  = "fluxcd/flux"
+      version = ">= 0.0.10"
+    }
   }
 }
 
