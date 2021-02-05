@@ -27,38 +27,44 @@ module "log_analytics_workspace" {
   name                = var.name
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
-  tags                = local.tags
+
+  tags = local.tags
 }
 
 
 module "container_registry" {
   source = "../../Modules/container_registry"
 
-  name                       = var.name
-  location                   = var.location
-  resource_group_name        = azurerm_resource_group.main.name
+  name                = var.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
   log_analytics_workspace_id = module.log_analytics_workspace.id
-  tags                       = local.tags
+
+  tags = local.tags
 }
 
 
 module "key_vault" {
   source = "../../Modules/key_vault"
 
-  name                       = format("%s%s", var.name, "shared")
-  location                   = var.location
-  resource_group_name        = azurerm_resource_group.main.name
+  name                = format("%s%s", var.name, "shared")
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
   log_analytics_workspace_id = module.log_analytics_workspace.id
-  tenant_id                  = var.tenant_id
-  tags                       = local.tags
+
+  tags = local.tags
 }
 
 module "event_hub" {
   source = "../../Modules/event_hub"
 
-  name                       = var.name
-  location                   = var.location
-  resource_group_name        = azurerm_resource_group.main.name
+  name                = var.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.main.name
+
   log_analytics_workspace_id = module.log_analytics_workspace.id
-  tags                       = local.tags
+
+  tags = local.tags
 }

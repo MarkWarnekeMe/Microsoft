@@ -9,20 +9,19 @@ variable "tenant_id" {
 }
 
 module "network" {
-  source              = "./markwarnekeme-vnet"
+  source = "./markwarnekeme-vnet"
+
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-vnet")
 }
 
 module "shared" {
-  source              = "./markwarnekeme-shared"
+  source = "./markwarnekeme-shared"
+
   name                = local.name
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-shared")
-
-  # Used from TF_VAR_tenant_id based on `secrets.sh`
-  tenant_id = var.tenant_id
 }
 
 
@@ -30,9 +29,8 @@ module "load-more" {
   source = "./load-more"
 
   name                = "load-more"
+  location            = local.location
   resource_group_name = format("%s%s", "load-more", "")
-
-  location = local.location
 
   # Used from TF_VAR_tenant_id based on `secrets.sh`
   tenant_id = var.tenant_id
@@ -44,5 +42,15 @@ module "load-more" {
   aks_default_nodepool_node_size  = "Standard_D2s_v3"
   aks_default_nodepool_node_count = 2
   kubernetes_version              = "1.18.10"
+}
 
+module "aml" {
+
+  source = "./markwarneke-aml"
+
+  name                = format("%s%s", local.name, "aml")
+  location            = local.location
+  resource_group_name = format("%s%s", local.name, "-aml")
+
+  container_registry_id = moduke.shared.container_registry_id
 }
