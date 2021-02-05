@@ -24,7 +24,7 @@ variable "log_analytics_workspace_id" {
 }
 
 variable "randomId" {
-  type = string
+  type        = string
   description = "A unique id to identify resources together"
 }
 

@@ -49,6 +49,6 @@ module "aml" {
   location            = local.location
   resource_group_name = format("%s%s", local.name, "-aml")
 
-  container_registry_id = module.shared.container_registry_id
+  container_registry_id      = module.shared.container_registry_id
   machine_learning_workspace = module.shared.log_analytics_workspace_id
 }
