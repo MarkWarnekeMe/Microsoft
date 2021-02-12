@@ -7,16 +7,17 @@
 
 | Name | Comment |
 | --- | ---|
-| [kubectx](https://github.com/ahmetb/kubectx) | Faster way to switch between clusters and namespaces in kubectl |
-| [k8slens](https://k8slens.dev/) | Lens is the only IDE you’ll ever need to take control of your Kubernetes clusters. It's open source and free. Download it today! |
+| [kubectx](https://github.com/ahmetb/kubectx) | Faster way to switch between clusters and namespaces in kubectl. |
+| [k8slens](https://k8slens.dev/) | Lens is the only IDE you’ll ever need to take control of your Kubernetes clusters. |
 | [akv2k8s](https://akv2k8s.io/) | zure Key Vault to Kubernetes (akv2k8s) makes Azure Key Vault secrets, certificates and keys available in Kubernetes and/or your application - in a simple and secure way. |
+| [flux](https://toolkit.fluxcd.io) | The GitOps Toolkit is a set of composable APIs and specialized tools that can be used to build a Continuous Delivery platform on top of Kubernetes.  |
 
 
 ### Terraform
 
 | Name | Comment | 
 | --- | --- |
-| [terratest](https://terratest.gruntwork.io/) | Terratest is a Go library that provides patterns and helper functions for testing infrastructure |
+| [terratest](https://terratest.gruntwork.io/) | Terratest is a Go library that provides patterns and helper functions for testing infrastructure. |
 
 ### Shell
 
