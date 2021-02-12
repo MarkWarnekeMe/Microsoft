@@ -76,4 +76,4 @@ runs `az login --service-principal` given the variables from `variables.sh`.
 
 ## flux.sh
 
-Sets up flux to current repo. TODO: terraform flux. #24
+Sets up flux to current repo. 
