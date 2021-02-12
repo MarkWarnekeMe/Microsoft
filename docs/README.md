@@ -18,6 +18,14 @@
 | --- | --- |
 | [terratest](https://terratest.gruntwork.io/) | Terratest is a Go library that provides patterns and helper functions for testing infrastructure |
 
+### Shell
+
+| Name | Comment | 
+| --- | --- |
+| [shellcheck](https://www.shellcheck.net/) | finds bugs in your shell scripts. |
+| [detect-secrets](https://github.com/Yelp/detect-secrets) | detect-secrets is an aptly named module for (surprise, surprise) detecting secrets within a code base. |
+
+
 ## Tips
 
 Rename `kubectl` to `k` in order to run kubectl quicker e.g. `k get po -A` instead of `kuebctl get pods -A`
