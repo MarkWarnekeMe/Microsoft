@@ -22,6 +22,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     vnet_subnet_id      = var.aks_subnet_id
     node_taints         = var.default_node_pool_nodes_taints
     max_pods            = var.default_node_pool_nodes_max_pods
+    orchestrator_version = var.kubernetes_version
   }
 
   identity {
