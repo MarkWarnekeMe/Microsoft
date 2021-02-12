@@ -15,7 +15,8 @@ Kubernetes GitOps configuration files are located in [clusters](../clusters/), F
 | [workflows](./workflows/)  | CI/CD documentation      |
 | [hack](../hack/)           | Scripts documentation    |
 | [terraform](../terraform/) | Terraform documentation  |
-| [clusters](../clusters/)   | Kubernetes documentation |
+| [clusters](../clusters/)   | Kubernetes documentation      |
+| [docs](../docs/)           | General & tools documentation |
 
 
 ## Getting started
