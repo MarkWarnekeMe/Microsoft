@@ -8,16 +8,35 @@ Terraform must be setup using: [`setup.sh`](../hack/setup.sh)
 ```bash
 az login
 
+chmod +x ./hack/login.sh
 chmod +x ./hack/variables.sh
+chmod +x ./hack/secrets.sh
 chmod +x ./hack/setup.sh
 
 # Source the variables
-# e.g. the names for resources
 source ./hack/variables.sh
 
-# Create the initial resources to run Terraform
-# e.g. creates Storage Account, Storage Container & Azure Key Vault
+# Create the initial environment
 ./hack/setup.sh
+
+# Get the secrets for the SPN
+source ./hack/secrets.sh
+# printenv | grep ARM_ # ATTENTION: Potentially leaks secrets
+
+# Login with the SPN
+./hack/login.sh
+
+# ____ following will run in the pipline ____
+
+# Run Terraform
+cd ./terraform/Microsoft
+
+# Run terraform init with backend-config
+./init.sh
+
+terraform plan
+
+terraform apply
 ```
 
 See [`variables.sh`](../hack/variables.sh) and [`setup.sh`](../hack/setup.sh).
