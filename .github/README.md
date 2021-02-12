@@ -20,7 +20,9 @@ Kubernetes GitOps configuration files are located in [clusters](../clusters/), F
 
 ## Getting started
 
-```bash
+Review the [variables.sh](https://github.com/MarkWarnekeMe/Microsoft/blob/main/hack/variables.sh) script and run the [setup.sh](https://github.com/MarkWarnekeMe/Microsoft/blob/main/hack/setup.sh)
+
+```sh
 az login
 
 chmod +x ./hack/login.sh
@@ -33,21 +35,15 @@ source ./hack/variables.sh
 
 # Create the initial environment
 ./hack/setup.sh
+```
 
-# Get the secrets for the SPN
-source ./hack/secrets.sh
-# printenv | grep ARM_ # ATTENTION: Potentially leaks secrets
+Make sure the pipeline is configured correctly, create `AZURE_CREDENTIALS` inside of the GitHub action using the service principal created.
+After kubernetes is setup run [flux.sh](https://github.com/MarkWarnekeMe/Microsoft/blob/main/hack/flux.sh), create a [Personal access tokens](https://github.com/settings/tokens/new) via `Settings/Developer settings/Personal access tokens`
 
-# Login with the SPN
-./hack/login.sh
+```
+# Create a personal access token for GitHub 
+GITHUB_TOKEN=$GITHUB_TOKEN
 
-# Run Terraform
-cd ./terraform/Microsoft
-
-# Run terraform init with backend-config
-./init.sh
-
-terraform plan
-
-terraform apply
+# Setup gitops
+./hack/flux.sh
 ```
