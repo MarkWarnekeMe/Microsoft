@@ -25,7 +25,7 @@
 | --- | --- |
 | [shellcheck](https://www.shellcheck.net/) | finds bugs in your shell scripts. |
 | [detect-secrets](https://github.com/Yelp/detect-secrets) | detect-secrets is an aptly named module for (surprise, surprise) detecting secrets within a code base. |
-
+| [markdownlint](https://github.com/markdownlint/markdownlint) | A tool to check markdown files and flag style issues. |
 
 ## Tips
 
